@@ -1,6 +1,6 @@
 ---
 title: "Activity 11 - Simulation"
-author: "Name"
+author: "Nathanial VanDyk"
 output: github_document
 ---
 
@@ -26,6 +26,9 @@ One way to make sure that you get similar results each time is to always run all
 For this activity, you will need the `{tidyverse}`.
 
 **delete this line and load `{tidyverse}`**
+```{r}
+library(tidyverse)
+```
 
 
 ## Exploration
@@ -59,12 +62,28 @@ ggplot(norm_samp_1000, aes(x = values)) +
 
 Using `norm_samp_1000`, obtain the mean and standard deviation of this sample?
 
+```{r norm_samp_1000}
+norm_samp_1000<-tibble(
+  values = rnorm(n = 1000, mean = 50, sd = 10)
+) %>% 
+  mean(norm_samp_1000)%>%
+  sd(norm_samp_1000)
+
+```
 
 
 Now, create a new simulation.
 In this you will obtain a sample of size 30 from from a Normally distributed variable with a mean 50 and standard deviation 10, and find the mean and standard deviation.
 How do the mean and standard deviation compare to your answers above?
 
+```{r}
+norm_samp_30 <- tibble(
+  values = rnorm(n = 30, mean = 50, sd = 10)
+)
+
+mean(norm_samp_30)
+sd(norm_samp_30)
+```
 
 
 ### Non-normally distributed population
